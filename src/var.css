@@ -1,0 +1,28 @@
+@font-face {
+  font-family: vazir;
+  src: url("./assets/fonts/Vazir-Medium-FD-WOL.ttf") format("truetype"),
+    url("./assets/fonts/Vazir-Medium-FD-WOL.woff") format("woff"),
+    url("./assets/fonts/Vazir-Medium-FD-WOL.woff2") format("woff2");
+  font-weight: 600;
+}
+:root {
+  /* 
+
+  * colors   
+  
+  */
+
+  --light-purple: #c59fdb;
+  --color-background: #ffebf1;
+  --color-primary: #ffafcc;
+  --color-secondary: #bde0fe;
+  --color-active: #1f93ff;
+
+  /* 
+
+  * typo   
+  
+  */
+
+  --vazir: vazir;
+}

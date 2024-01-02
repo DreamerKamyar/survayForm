@@ -9,14 +9,9 @@ import varyHappyColor from "../assets/icons/veryHappy-color.png";
 
 export const icons = [
   {
-    id: 4,
-    acitve: varyHappyColor,
-    inAcitve: veryHappy,
-  },
-  {
-    id: 1,
-    acitve: happyColor,
-    inAcitve: happy,
+    id: 2,
+    acitve: sadColor,
+    inAcitve: sad,
   },
   {
     id: 3,
@@ -24,8 +19,13 @@ export const icons = [
     inAcitve: poker,
   },
   {
-    id: 2,
-    acitve: sadColor,
-    inAcitve: sad,
+    id: 1,
+    acitve: happyColor,
+    inAcitve: happy,
+  },
+  {
+    id: 4,
+    acitve: varyHappyColor,
+    inAcitve: veryHappy,
   },
 ];

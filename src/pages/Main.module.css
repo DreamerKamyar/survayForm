@@ -1,8 +1,9 @@
 @import "../var.css";
 
 .main__container {
-  padding: 2.5rem;
   padding-top: 1rem;
+  padding-bottom: 2rem;
+
   margin-top: 12rem;
   background-color: var(--color-secondary);
   border-radius: 8px;
@@ -24,6 +25,7 @@
   text-align: center;
   line-height: 1.6;
   color: black;
+  padding-inline: 2rem;
 }
 
 .link__container {

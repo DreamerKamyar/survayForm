@@ -42,6 +42,8 @@ button,
 textarea,
 select {
   font: inherit;
+  font-size: 1.3rem;
+  line-height: 2.2rem;
 }
 /*
     7. Avoid text overflows

@@ -9,8 +9,15 @@
 .form__container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   position: relative;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.form__btns {
+  display: flex;
+  gap: 2rem;
 }
 :root {
   --margin-line: #941c5a;
@@ -123,4 +130,61 @@ textarea:focus {
   background-color: #3b82f6;
   box-shadow: 0 0 0 5px #3b83f65f;
   color: #fff;
+}
+.panel__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: grid;
+  place-items: center;
+  z-index: 20000;
+}
+.panel__container {
+  width: 80%;
+  height: 65%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-secondary);
+  position: relative;
+}
+.close__btn {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  cursor: pointer;
+}
+.close__btn::after {
+  display: inline-block;
+  content: "";
+  width: 2px;
+  height: 25px;
+  background-color: rgb(122, 122, 122);
+  transform: rotate(40deg) translate(-1px, 1px);
+}
+.close__btn::before {
+  display: inline-block;
+  content: "";
+  width: 2px;
+  height: 25px;
+  background-color: rgb(122, 122, 122);
+  transform: rotate(-40deg);
+}
+.btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+@media only screen and (min-width: 1048px) {
+  .form__container {
+    padding: 4rem;
+    gap: 4rem;
+  }
+  .paper {
+    max-width: 800px;
+  }
 }

@@ -1,13 +1,23 @@
 import styles from "./SurvayForm.module.css";
 import FormInput from "../components/FormInput";
-import Button from "../components/Button";
+import LinkButton from "../components/LinkButton";
+import { formInputData } from "../constant/formInputData";
 const SurvayForm = () => {
   return (
     <section className={styles.main__container}>
-      <FormInput></FormInput>
-      <Button
+      {formInputData.map((forminput) => {
+        return (
+          <FormInput
+            key={forminput.id}
+            question={forminput.qustion}
+            options={forminput.opttions}
+            id={forminput.id}
+          ></FormInput>
+        );
+      })}
+      <LinkButton
         link={"/"}
-        label={"go back"}
+        label={"برگشت"}
         style={{
           fontSize: "1.1rem",
           padding: "0.5rem 2rem",
@@ -15,7 +25,7 @@ const SurvayForm = () => {
           top: "4%",
           left: "min(6% , 50px)",
         }}
-      ></Button>
+      ></LinkButton>
     </section>
   );
 };

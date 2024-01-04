@@ -14,6 +14,8 @@
   display: flex;
   gap: 1.3rem;
   flex-direction: column;
+  max-width: 1000px;
+  margin: 3rem auto;
 }
 .option__container {
   display: none;

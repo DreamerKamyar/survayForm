@@ -2,49 +2,27 @@ import React, { useState } from "react";
 import styles from "./FormInput.module.css";
 import IconGroup from "./IconGroup";
 import Input from "./Input";
-const FormInput = () => {
+const FormInput = ({ question, options, id }) => {
   const [activeInput, setActiveInput] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(0);
+
   document.addEventListener("click", function (event) {
     if (!event.target.closest(".formInput")) {
-      setIsActive(false);
-    }
-    if (event.target.closest(".formInput")) {
-      setIsActive(true);
+      setIsActive(0);
     }
   });
-  const id = 1;
-  const qustion = "this is a question ";
-
-  const opttions = [
-    {
-      id: 1,
-      text: "this is a text 1",
-    },
-    {
-      id: 2,
-      text: "this is a text 2",
-    },
-    {
-      id: 3,
-      text: "this is a text 3",
-    },
-    // {
-    //   id: 4,
-    //   text: "this is a text 4",
-    // },
-    // {
-    //   id: 5,
-    //   text: "this is a text 5",
-    // },
-    // {
-    //   id: 6,
-    //   text: "this is a text 6",
-    // },
-  ];
+  const openInputHandler = (event) => {
+    console.log(event.target);
+    const selectedInput = event.target.id;
+    setIsActive(selectedInput);
+  };
   return (
     <>
-      <div className={`${styles.form__container} formInput`}>
+      <div
+        className={`${styles.form__container} formInput`}
+        id={id}
+        onClick={openInputHandler}
+      >
         <div
           style={{
             position: "relative",
@@ -52,18 +30,18 @@ const FormInput = () => {
             width: "100%",
           }}
         ></div>
-        <div className={styles.question__container}>
+        <div className={styles.question__container} id={id}>
           <span>.{id}</span>
-          <h4>{qustion}</h4>
+          <h4>{question}</h4>
         </div>
         <IconGroup></IconGroup>
         <div
           className={`${styles.option__container}
-      ${isActive === true ? styles.setActive : ""}
+      ${isActive === String(id) ? styles.setActive : ""}
       `}
         >
           <div>
-            {opttions.map((option) => {
+            {options.map((option) => {
               return (
                 <Input
                   key={option.id}

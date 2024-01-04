@@ -1,13 +1,27 @@
 import React from "react";
 import styles from "./Critics.module.css";
-import Button from "../components/Button";
+import LinkButton from "../components/LinkButton";
 import { useState } from "react";
+import RecordAudioVideoPanel from "../components/RecordAudioVideoPanel";
+import Button from "../components/Button";
 const Critics = () => {
   const [textInput, setTextInput] = useState("");
+  const [isRecordingPanelOpen, setIsRecordingPanelOpen] = useState(false);
+
+  const openRecordingPanelHandler = (event) => {
+    if (event.target.closest(".panel")) {
+      return;
+    }
+    console.log("test", event.target);
+    setIsRecordingPanelOpen(!isRecordingPanelOpen);
+  };
+
+  const closePanel = () => {
+    setIsRecordingPanelOpen(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     console.log("Submitted:", textInput);
   };
   return (
@@ -22,21 +36,37 @@ const Critics = () => {
             onChange={(event) => setTextInput(event.target.value)}
           ></textarea>
         </div>
-        <button type="submit" className={styles.form__btn}>
-          ارسال نظرات
-        </button>
+        <div className={styles.form__btns}>
+          <Button type="submit" label={"ارسال نظرات"}></Button>
+          <Button clickHandler={openRecordingPanelHandler} label={"ظبط فیلم"}>
+            open Recording
+          </Button>
+        </div>
       </form>
-      <Button
+      <LinkButton
         link={"/"}
-        label={"go back"}
+        label={"برگشت"}
         style={{
           fontSize: "1.1rem",
           padding: "0.5rem 2rem",
           position: "fixed",
           top: "4%",
           left: "min(6% , 50px)",
+          zIndex: "2000",
         }}
-      ></Button>
+      ></LinkButton>
+
+      {isRecordingPanelOpen ? (
+        <div
+          className={styles.panel__background}
+          onClick={openRecordingPanelHandler}
+        >
+          <div className={`${styles.panel__container} panel`}>
+            <span className={styles.close__btn} onClick={closePanel}></span>
+            <RecordAudioVideoPanel></RecordAudioVideoPanel>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };

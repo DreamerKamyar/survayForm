@@ -30,7 +30,8 @@
 
 .link__container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 4rem;
   margin-block: 2rem;
 }
 
@@ -52,4 +53,28 @@
 .link__link:focus {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transform: translateY(0);
+}
+
+@media only screen and (min-width: 1027px) {
+  .main__container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 8rem 2rem;
+    max-width: 1200px;
+    margin: 4rem auto;
+  }
+  .nailimgae__container {
+    flex-grow: 1;
+  }
+  .nailImage__img {
+    transform: translate(-50%, -14px);
+  }
+  .content__container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 2rem;
+    width: 100px;
+  }
 }

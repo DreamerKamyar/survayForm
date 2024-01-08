@@ -1,6 +1,6 @@
 export const formInputData = [
   {
-    id: 1,
+    id: "input1",
     qustion: "this is a question ",
 
     opttions: [
@@ -31,12 +31,12 @@ export const formInputData = [
     ],
   },
   {
-    id: 2,
+    id: "input2",
     qustion: "this is a question 2",
 
     opttions: [
       {
-        id: 2,
+        id: 1,
         text: "this is a text 1",
       },
       {

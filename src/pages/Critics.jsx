@@ -4,10 +4,15 @@ import LinkButton from "../components/LinkButton";
 import { useState } from "react";
 import RecordAudioVideoPanel from "../components/RecordAudioVideoPanel";
 import Button from "../components/Button";
+import { motion } from "framer-motion";
+import PopUp from "../components/PopUp";
 const Critics = () => {
   const [textInput, setTextInput] = useState("");
   const [isRecordingPanelOpen, setIsRecordingPanelOpen] = useState(false);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModalHandler = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   const openRecordingPanelHandler = (event) => {
     if (event.target.closest(".panel")) {
       return;
@@ -25,7 +30,15 @@ const Critics = () => {
     console.log("Submitted:", textInput);
   };
   return (
-    <div className={styles.ciritcs__container}>
+    <motion.div
+      className={styles.ciritcs__container}
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 100 }}
+      transition={{
+        duration: 0.5,
+      }}
+    >
       <form onSubmit={handleSubmit} className={styles.form__container}>
         <div className={styles.paper}>
           <div className={styles.hole__contianer}>
@@ -37,25 +50,20 @@ const Critics = () => {
           ></textarea>
         </div>
         <div className={styles.form__btns}>
-          <Button type="submit" label={"ارسال نظرات"}></Button>
+          <Button
+            type="submit"
+            label={"ارسال نظرات"}
+            clickHandler={openModalHandler}
+          ></Button>
           <Button clickHandler={openRecordingPanelHandler} label={"ظبط فیلم"}>
             open Recording
           </Button>
         </div>
       </form>
-      <LinkButton
-        link={"/"}
-        label={"برگشت"}
-        style={{
-          fontSize: "1.1rem",
-          padding: "0.5rem 2rem",
-          position: "fixed",
-          top: "4%",
-          left: "min(6% , 50px)",
-          zIndex: "2000",
-        }}
-      ></LinkButton>
 
+      {isModalOpen && (
+        <PopUp isOpen={isModalOpen} onClose={openModalHandler}></PopUp>
+      )}
       {isRecordingPanelOpen ? (
         <div
           className={styles.panel__background}
@@ -67,7 +75,7 @@ const Critics = () => {
           </div>
         </div>
       ) : null}
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Input.module.css";
 const Input = ({ id, label, setActive, isActive }) => {
+  const [test, setTest] = useState("");
   const inputActivehandler = (event) => {
-    console.log(event.target);
     setActive(parseFloat(event.target.id));
   };
 
@@ -18,6 +18,7 @@ const Input = ({ id, label, setActive, isActive }) => {
       >
         {label}
       </label>
+      <h2></h2>
     </div>
   );
 };

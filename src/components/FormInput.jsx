@@ -3,19 +3,21 @@ import styles from "./FormInput.module.css";
 import IconGroup from "./IconGroup";
 import Input from "./Input";
 const FormInput = ({ question, options, id }) => {
+  console.log(id);
   const [activeInput, setActiveInput] = useState(0);
-  const [isActive, setIsActive] = useState(0);
+  const [isOpen, setIsOpen] = useState("");
 
   document.addEventListener("click", function (event) {
     if (!event.target.closest(".formInput")) {
-      setIsActive(0);
+      setIsOpen("");
     }
   });
   const openInputHandler = (event) => {
-    console.log(event.target);
-    const selectedInput = event.target.id;
-    setIsActive(selectedInput);
+    const selectedInput = event.target.closest(".formInput");
+
+    setIsOpen(selectedInput.id);
   };
+
   return (
     <>
       <div
@@ -30,14 +32,14 @@ const FormInput = ({ question, options, id }) => {
             width: "100%",
           }}
         ></div>
-        <div className={styles.question__container} id={id}>
-          <span>.{id}</span>
+        <div className={styles.question__container}>
+          <span>.{id.split("").at(-1)}</span>
           <h4>{question}</h4>
         </div>
         <IconGroup></IconGroup>
         <div
           className={`${styles.option__container}
-      ${isActive === String(id) ? styles.setActive : ""}
+      ${isOpen === id ? styles.setActive : ""}
       `}
         >
           <div>

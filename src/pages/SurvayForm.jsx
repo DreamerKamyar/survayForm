@@ -1,10 +1,27 @@
 import styles from "./SurvayForm.module.css";
 import FormInput from "../components/FormInput";
-import LinkButton from "../components/LinkButton";
+
 import { formInputData } from "../constant/formInputData";
+import PopUp from "../components/PopUp";
+import { useState } from "react";
+import Button from "../components/Button";
+import { motion } from "framer-motion";
+import slideVariants from "../constant/slideVarient";
 const SurvayForm = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModalHandler = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   return (
-    <section className={styles.main__container}>
+    <motion.section
+      variants={slideVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{
+        duration: 0.5,
+      }}
+    >
       {formInputData.map((forminput) => {
         return (
           <FormInput
@@ -15,18 +32,13 @@ const SurvayForm = () => {
           ></FormInput>
         );
       })}
-      <LinkButton
-        link={"/"}
-        label={"برگشت"}
-        style={{
-          fontSize: "1.1rem",
-          padding: "0.5rem 2rem",
-          position: "fixed",
-          top: "4%",
-          left: "min(6% , 50px)",
-        }}
-      ></LinkButton>
-    </section>
+      <div className={styles.modal__container}>
+        <Button label={"ارسال نظرات"} clickHandler={openModalHandler}></Button>
+      </div>
+      {isModalOpen && (
+        <PopUp isOpen={isModalOpen} onClose={openModalHandler}></PopUp>
+      )}
+    </motion.section>
   );
 };
 

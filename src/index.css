@@ -22,6 +22,9 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: var(--vazir);
   background-color: var(--color-background);
+  background-image: url(./assets/images/5169414.png);
+  background-size: 400px, cover;
+  background-repeat: repeat;
 }
 /*
     5. Improve media defaults

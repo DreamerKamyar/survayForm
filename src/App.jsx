@@ -4,6 +4,7 @@ import Root from "./pages/global/Root";
 import SurvayForm from "./pages/SurvayForm";
 import Critics from "./pages/Critics";
 
+import { AnimatePresence } from "framer-motion";
 function App() {
   const router = createBrowserRouter([
     {
@@ -16,7 +17,11 @@ function App() {
       ],
     },
   ]);
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <RouterProvider router={router}>
+      <AnimatePresence></AnimatePresence>
+    </RouterProvider>
+  );
 }
 
 export default App;

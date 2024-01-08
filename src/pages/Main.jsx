@@ -3,9 +3,18 @@ import styles from "./Main.module.css";
 import nailImage from "../assets/images/nail-image.png";
 import { Link } from "react-router-dom";
 import LinkButton from "../components/LinkButton";
+import { motion } from "framer-motion";
 const Main = () => {
   return (
-    <section className={styles.main__container}>
+    <motion.section
+      className={styles.main__container}
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 100 }}
+      transition={{
+        duration: 0.5,
+      }}
+    >
       <div className={styles.nailimgae__container}>
         <img src={nailImage} alt="" className={styles.nailImage__img} />
       </div>
@@ -20,7 +29,7 @@ const Main = () => {
           <LinkButton link={"critics"} label={"انتقادات"}></LinkButton>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

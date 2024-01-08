@@ -3,7 +3,7 @@
 .background {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
   z-index: 2000;
   display: grid;
@@ -19,7 +19,41 @@
   background-color: var(--color-secondary);
   padding: 5rem;
   border-radius: 10px;
+  position: relative;
+  border: none;
 }
 .modal button {
   margin-inline: auto;
+}
+.modal:before,
+.modal:after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #e6286e, #f8a7c5, #bde0fe, #1f93ff);
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.modal:after {
+  filter: blur(50px);
 }

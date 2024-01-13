@@ -4,7 +4,7 @@ import styles from "./PopUp.module.css";
 import Button from "./Button";
 const PopUp = ({ isOpen, onClose }) => {
   return createPortal(
-    <div>
+    <div >
       {isOpen && (
         <div className={styles.background}>
           <div className={`${styles.modal} ${!isOpen ? styles.hidden : ""}`}>

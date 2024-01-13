@@ -1,11 +1,8 @@
-import React from "react";
 import styles from "./Root.module.css";
 import logo from "../../assets/images/logo.png";
-import { Outlet } from "react-router-dom";
-import LinkButton from "../../components/LinkButton";
 
 import { motion } from "framer-motion";
-const Root = () => {
+const Root = ({ children }) => {
   return (
     <>
       <motion.main
@@ -18,13 +15,10 @@ const Root = () => {
           <div className={styles.logo__container}>
             <img src={logo} alt="" className={styles.logo__img} />
           </div>
-          <div className={styles.content__container}>
-            <Outlet></Outlet>
-          </div>
+          <div className={styles.content__container}>{children}</div>
         </div>
       </motion.main>
-      <LinkButton
-        link={".."}
+      <a
         label={"برگشت"}
         style={{
           fontSize: "1.1rem",
@@ -33,7 +27,7 @@ const Root = () => {
           top: "4%",
           left: "min(6% , 50px)",
         }}
-      ></LinkButton>
+      ></a>
     </>
   );
 };

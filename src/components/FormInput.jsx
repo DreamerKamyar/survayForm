@@ -3,7 +3,6 @@ import styles from "./FormInput.module.css";
 import IconGroup from "./IconGroup";
 import Input from "./Input";
 const FormInput = ({ question, options, id }) => {
-  console.log(id);
   const [activeInput, setActiveInput] = useState(0);
   const [isOpen, setIsOpen] = useState("");
 

@@ -1,18 +1,13 @@
-import React from "react";
 import styles from "./Critics.module.css";
-import LinkButton from "../components/LinkButton";
+
 import { useState } from "react";
 import RecordAudioVideoPanel from "../components/RecordAudioVideoPanel";
 import Button from "../components/Button";
 import { motion } from "framer-motion";
-import PopUp from "../components/PopUp";
 const Critics = () => {
   const [textInput, setTextInput] = useState("");
   const [isRecordingPanelOpen, setIsRecordingPanelOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModalHandler = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+
   const openRecordingPanelHandler = (event) => {
     if (event.target.closest(".panel")) {
       return;
@@ -51,19 +46,14 @@ const Critics = () => {
         </div>
         <div className={styles.form__btns}>
           <Button
-            type="submit"
-            label={"ارسال نظرات"}
-            clickHandler={openModalHandler}
-          ></Button>
-          <Button clickHandler={openRecordingPanelHandler} label={"ظبط فیلم"}>
+            clickHandler={openRecordingPanelHandler}
+            label={"ضبط فیلم و صدا"}
+          >
             open Recording
           </Button>
         </div>
       </form>
 
-      {isModalOpen && (
-        <PopUp isOpen={isModalOpen} onClose={openModalHandler}></PopUp>
-      )}
       {isRecordingPanelOpen ? (
         <div
           className={styles.panel__background}

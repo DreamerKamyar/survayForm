@@ -1,5 +1,4 @@
 import React from "react";
-import "./test.css";
 import { useState, useRef } from "react";
 import styles from "./RecordAudio.module.css";
 import Button from "./Button";

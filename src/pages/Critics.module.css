@@ -138,19 +138,18 @@ textarea:focus {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  display: grid;
-  place-items: center;
   z-index: 20000;
 }
 .panel__container {
-  width: 83%;
-  height: 55%;
+  width: 80%;
+  height: 20%;
   background-color: #fff;
   border-radius: 10px;
   padding: 1rem;
   box-shadow: var(--box-shadow);
   background-color: var(--color-secondary);
-  position: absolute;
+  position: sticky;
+  top: 10%;
   margin-inline: auto;
 }
 .close__btn {
@@ -187,6 +186,9 @@ textarea:focus {
   }
   .paper {
     max-width: 800px;
+  }
+  .panel__container {
+    width: 400px;
   }
 }
 @media only screen and (min-width: 600px) {

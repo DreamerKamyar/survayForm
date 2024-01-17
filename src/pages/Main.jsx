@@ -22,7 +22,6 @@ const Main = () => {
           از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و
           سطرآنچنان که لازم است و برای شرایط فعلی تکن
         </p>
-        <div className={styles.link__container}></div>
       </div>
     </motion.section>
   );
